@@ -1,0 +1,49 @@
+﻿@model ToTheChase.Models.Runner
+
+@{
+    ViewBag.Title = "RunnerDetail";
+}
+
+<h2>Runner Detail</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RunnerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RunnerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            Pace
+        </dt>
+
+        <dd>
+            @Html.Partial("PacePartial",Model)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RunnerID }) |
+    @Html.ActionLink("Back to List", "Runners")
+</p>

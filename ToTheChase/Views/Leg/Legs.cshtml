@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ToTheChase.Models.Leg>
+
+@{
+    ViewBag.Title = "Legs";
+}
+
+<h2>Legs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LegNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LegName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LegDescrition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LengthInMiles)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LegNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LegName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LegDescrition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LengthInMiles)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.LegID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LegID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LegID })
+        </td>
+    </tr>
+}
+
+</table>
