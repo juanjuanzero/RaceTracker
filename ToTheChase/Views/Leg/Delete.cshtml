@@ -1,0 +1,56 @@
+﻿@model ToTheChase.Models.Leg
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Leg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LegNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegDescrition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegDescrition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LengthInMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LengthInMiles)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.Hidden("id", new { id = Model.LegID})
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Legs")
+        </div>
+    }
+</div>

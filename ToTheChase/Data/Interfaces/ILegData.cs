@@ -10,5 +10,9 @@ namespace ToTheChase.Data.Interfaces
     public interface ILegData
     {
         IEnumerable<Leg> Legs();
+        Leg GetLegById(int id);
+        void UpdateLeg(Leg leg);
+        void Add(Leg leg);
+        void Remove(int id);
     }
 }

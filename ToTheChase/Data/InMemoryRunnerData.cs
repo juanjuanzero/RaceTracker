@@ -154,5 +154,19 @@ namespace ToTheChase.Data
             RunnerDb.Remove(oldRunner);
             RunnerDb.Add(NewRunner);
         }
+
+        public void Add(Runner runner)
+        {
+            var newRunner = runner;
+            newRunner.RunnerID = RunnerDb.Max(r => r.RunnerID) + 1;
+            newRunner.RunnerNumber = newRunner.RunnerID;
+            RunnerDb.Add(newRunner);
+        }
+
+        public void Remove(int id)
+        {
+            var r = GetRunnerById(id);
+            RunnerDb.Remove(r);
+        }
     }
 }

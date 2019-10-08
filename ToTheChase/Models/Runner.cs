@@ -23,6 +23,6 @@ namespace ToTheChase.Models
         public int PaceSeconds { get; set; }
         [Display(Name = "Van Type")]
         public Van Van;
-        public List<Leg> Legs { get; set; }
+        public List<int> Legs { get; set; }
     }
 }

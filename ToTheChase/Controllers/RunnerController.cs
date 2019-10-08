@@ -21,6 +21,23 @@ namespace ToTheChase.Controllers
             this.db = db;
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Runner runner)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Add(runner);
+                return RedirectToAction("Runners");
+            }
+            return View(runner);
+        }
 
         public ActionResult Details(int id)
         {
@@ -51,6 +68,25 @@ namespace ToTheChase.Controllers
         {
             var model = db.GetAllRunners();
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var model = db.GetRunnerById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, string s)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Remove(id);
+                return RedirectToAction("Runners");
+            }
+            return View();
         }
     }
 }

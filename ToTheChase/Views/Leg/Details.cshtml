@@ -1,0 +1,50 @@
+﻿@model ToTheChase.Models.Leg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Leg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LegNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LegDescrition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LegDescrition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LengthInMiles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LengthInMiles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LegID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

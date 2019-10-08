@@ -16,8 +16,8 @@ namespace ToTheChase.App_Start
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<InMemoryRunnerData>().As<IRunnerData>().SingleInstance();
-            builder.RegisterType<InMemoryLegData>().As<ILegData>().SingleInstance();
+            builder.RegisterType<RunnerContext>().As<IRunnerData>().InstancePerRequest();
+            builder.RegisterType<LegContext>().As<ILegData>().InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

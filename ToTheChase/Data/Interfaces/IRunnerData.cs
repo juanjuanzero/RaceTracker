@@ -12,5 +12,7 @@ namespace ToTheChase.Data
         IEnumerable<Runner> GetAllRunners();
         Runner GetRunnerById(int id);
         void UpdateRunner(Runner runner);
+        void Add(Runner runner);
+        void Remove(int id);
     }
 }
