@@ -15,10 +15,10 @@
             @Html.DisplayNameFor(model => model.LegNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LegName)
+            @Html.DisplayNameFor(model => model.AssignedRunnerId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LegDescrition)
+            @Html.DisplayNameFor(model => model.LegDifficulty)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LengthInMiles)
@@ -32,10 +32,10 @@
             @Html.DisplayFor(modelItem => item.LegNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LegName)
+            @Html.DisplayFor(modelItem => item.Runner.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LegDescrition)
+            @Html.DisplayFor(modelItem => item.LegDifficulty)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LengthInMiles)

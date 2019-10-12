@@ -19,19 +19,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LegName)
+            @Html.DisplayNameFor(model => model.AssignedRunnerId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LegName)
+            @Html.DisplayFor(model => model.AssignedRunnerId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LegDescrition)
+            @Html.DisplayNameFor(model => model.LegDifficulty)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LegDescrition)
+            @Html.DisplayFor(model => model.LegDifficulty)
         </dd>
 
         <dt>
@@ -46,5 +46,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.LegID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Legs")
 </p>

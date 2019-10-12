@@ -6,7 +6,7 @@ using ToTheChase.Models;
 
 namespace ToTheChase.Data
 {
-    public class InMemoryRunnerData : IRunnerData
+    public class InMemoryRunnerData : IToTheChaseData
     {
         public readonly List<Runner> RunnerDb;
 
@@ -155,7 +155,7 @@ namespace ToTheChase.Data
             RunnerDb.Add(NewRunner);
         }
 
-        public void Add(Runner runner)
+        public void AddRunner(Runner runner)
         {
             var newRunner = runner;
             newRunner.RunnerID = RunnerDb.Max(r => r.RunnerID) + 1;
@@ -163,10 +163,35 @@ namespace ToTheChase.Data
             RunnerDb.Add(newRunner);
         }
 
-        public void Remove(int id)
+        public void RemoveRunner(int id)
         {
             var r = GetRunnerById(id);
             RunnerDb.Remove(r);
+        }
+
+        public IEnumerable<Leg> Legs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Leg GetLegById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateLeg(Leg leg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddLeg(Leg leg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveLeg(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

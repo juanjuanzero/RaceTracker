@@ -6,7 +6,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ToTheChase.Data;
-using ToTheChase.Data.Interfaces;
 
 namespace ToTheChase.App_Start
 {
@@ -16,8 +15,7 @@ namespace ToTheChase.App_Start
         {
             var builder = new ContainerBuilder();
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterType<RunnerContext>().As<IRunnerData>().InstancePerRequest();
-            builder.RegisterType<LegContext>().As<ILegData>().InstancePerRequest();
+            builder.RegisterType<ToTheChaseContext>().As<IToTheChaseData>().InstancePerRequest();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

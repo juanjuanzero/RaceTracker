@@ -7,12 +7,18 @@ using ToTheChase.Models;
 
 namespace ToTheChase.Data
 {
-    public interface IRunnerData
+    public interface IToTheChaseData
     {
         IEnumerable<Runner> GetAllRunners();
         Runner GetRunnerById(int id);
         void UpdateRunner(Runner runner);
-        void Add(Runner runner);
-        void Remove(int id);
+        void AddRunner(Runner runner);
+        void RemoveRunner(int id);
+
+        IEnumerable<Leg> Legs();
+        Leg GetLegById(int id);
+        void UpdateLeg(Leg leg);
+        void AddLeg(Leg leg);
+        void RemoveLeg(int id);
     }
 }

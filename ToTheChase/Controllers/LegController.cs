@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ToTheChase.Data.Interfaces;
+using ToTheChase.Data;
 using ToTheChase.Models;
 
 namespace ToTheChase.Controllers
 {
     public class LegController : Controller
     {
-        private readonly ILegData db;
+        private readonly IToTheChaseData db;
 
-        public LegController(ILegData db)
+        public LegController(IToTheChaseData db)
         {
             this.db = db;
         }
@@ -28,6 +28,7 @@ namespace ToTheChase.Controllers
         public ActionResult Create()
         {
             var model = new Leg();
+            ViewBag.Runners = db.GetAllRunners();
             return View(model);
         }
 
@@ -37,7 +38,7 @@ namespace ToTheChase.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Add(leg);
+                db.AddLeg(leg);
                 return RedirectToAction("Legs");
             }
             return View(leg);
@@ -47,6 +48,7 @@ namespace ToTheChase.Controllers
         public ActionResult Edit(int id)
         {
             var leg = db.GetLegById(id);
+            ViewBag.Runners = db.GetAllRunners();
             return View(leg);
         }
 
@@ -80,7 +82,7 @@ namespace ToTheChase.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, string s)
         {
-            db.Remove(id);
+            db.RemoveLeg(id);
             return RedirectToAction("Legs");
         }
 

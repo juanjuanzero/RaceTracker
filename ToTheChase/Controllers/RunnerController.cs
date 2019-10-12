@@ -10,13 +10,13 @@ namespace ToTheChase.Controllers
 {
     public class RunnerController : Controller
     {
-        private readonly IRunnerData db;
+        private readonly IToTheChaseData db;
 
         /// <summary>
         /// Using dependency inject here to inject the appropriate data class.
         /// </summary>
         /// <param name="db"></param>
-        public RunnerController(IRunnerData db)
+        public RunnerController(IToTheChaseData db)
         {
             this.db = db;
         }
@@ -33,7 +33,7 @@ namespace ToTheChase.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Add(runner);
+                db.AddRunner(runner);
                 return RedirectToAction("Runners");
             }
             return View(runner);
@@ -83,7 +83,7 @@ namespace ToTheChase.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Remove(id);
+                db.RemoveRunner(id);
                 return RedirectToAction("Runners");
             }
             return View();

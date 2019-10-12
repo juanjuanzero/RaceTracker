@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using ToTheChase.Data.Interfaces;
 using ToTheChase.Models;
 
 namespace ToTheChase.Data
 {
-    public class InMemoryLegData : ILegData
+    public class InMemoryLegData : IToTheChaseData
     {
         private readonly List<Leg> LegsDb;
         public InMemoryLegData()
@@ -233,10 +232,20 @@ namespace ToTheChase.Data
             };
         }
 
-        public void Add(Leg leg)
+        public void AddLeg(Leg leg)
         {
             leg.LegID = LegsDb.Max(l => l.LegID) + 1;
             LegsDb.Add(leg);
+        }
+
+        public void AddRunner(Runner runner)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Runner> GetAllRunners()
+        {
+            throw new NotImplementedException();
         }
 
         public Leg GetLegById(int id)
@@ -245,21 +254,36 @@ namespace ToTheChase.Data
             return leg;
         }
 
+        public Runner GetRunnerById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Leg> Legs()
         {
             return LegsDb.OrderBy(l => l.LegNumber);
         }
 
-        public void Remove(int id)
+        public void RemoveLeg(int id)
         {
             var leg = GetLegById(id);
             LegsDb.Remove(leg);
         }
 
+        public void RemoveRunner(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateLeg(Leg leg)
         {
-            Remove(leg.LegID);
+            RemoveLeg(leg.LegID);
             LegsDb.Add(leg);
+        }
+
+        public void UpdateRunner(Runner runner)
+        {
+            throw new NotImplementedException();
         }
     }
 }
